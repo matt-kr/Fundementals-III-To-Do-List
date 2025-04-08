@@ -41,6 +41,7 @@ todo.forEach((item, index) => {
     removeButton.classList.add('remove');
 
     span.textContent = item;
+    span.style.cursor = 'pointer';
     removeButton.textContent = 'Remove';
     
     span.addEventListener("click", function(event){
