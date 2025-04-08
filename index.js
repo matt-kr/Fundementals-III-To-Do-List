@@ -33,7 +33,21 @@ for (let item of todo) {
     let removeButton = document.createElement('button');
     
     li.textContent = item;
+    removeButton.textContent = 'Remove';
+
     existitingList.appendChild(li);
+    li.appendChild(span);
+    span.appendChild(removeButton);
+
+    li.addEventListener('click', function (event){
+        const clickedListItem = event.target;
+
+        if (clickedListItem.style.textDecoration === 'line-through') {
+            clickedListItem.style.textDecoration = '';
+        } else {
+            clickedListItem.style.textDecoration = 'line-through';
+        }
+    });
 }
 }
 
@@ -56,7 +70,7 @@ const addButton = document.getElementById('todo-item-add-btn');
 
 addButton.addEventListener('click', function(event) {
     console.log('add button click event occurred');
-        addToTodo(event.target.value);
+        addToTodo(listItemArea.value);
 });
 
 displayToDos(todo);
