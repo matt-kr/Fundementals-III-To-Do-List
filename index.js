@@ -28,37 +28,78 @@ function displayToDos() {
 
 existingList.innerHTML = "";
 
-for (let item of todo) {
+todo.forEach((item, index) => {
+    
     let li = document.createElement('li');
     let span = document.createElement('span');
     let removeButton = document.createElement('button');
     
-
     li.classList.add('todo-item');
     
     span.textContent = item;
     removeButton.textContent = 'Remove';
-
+    
+    span.addEventListener("click", function(event){
+    span.style.textDecoration =
+    span.style.textDecoration === 'line-through' ? '' : 'line-through';
+    
+    });
+    
+    removeButton.addEventListener('click', function(event){
+    
+    todo.splice(index, 1);
+    displayToDos();
+    
+    });
+    
     li.appendChild(span);
     li.appendChild(removeButton);
     existingList.appendChild(li);
-
-    // <li>List Item Text<span>Remove Button</span></li>
-
+    
     li.addEventListener('click', function (event){
-        const clickedListItem = event.target;
+    const clickedListItem = event.target;
+    
+    if (clickedListItem.style.textDecoration === 'line-through') {
+        clickedListItem.style.textDecoration = '';
+    } else {
+        clickedListItem.style.textDecoration = 'line-through';
+    }
+    
+    });
+});
 
-        if (clickedListItem.style.textDecoration === 'line-through') {
-            clickedListItem.style.textDecoration = '';
-        } else {
-            clickedListItem.style.textDecoration = 'line-through';
-        }
-    });
-    removeButton.addEventListener('click', function(){
-        todo.splice(index, 1);
-        displayToDos();
-    });
-}
+
+// for (let item of todo) {
+//     let li = document.createElement('li');
+//     let span = document.createElement('span');
+//     let removeButton = document.createElement('button');
+    
+
+//     li.classList.add('todo-item');
+    
+//     span.textContent = item;
+//     removeButton.textContent = 'Remove';
+
+//     li.appendChild(span);
+//     li.appendChild(removeButton);
+//     existingList.appendChild(li);
+
+//     // <li>List Item Text<span>Remove Button</span></li>
+
+//     li.addEventListener('click', function (event){
+//         const clickedListItem = event.target;
+
+//         if (clickedListItem.style.textDecoration === 'line-through') {
+//             clickedListItem.style.textDecoration = '';
+//         } else {
+//             clickedListItem.style.textDecoration = 'line-through';
+//         }
+//     });
+//     removeButton.addEventListener('click', function(){
+//         todo.splice(index, 1);
+//         displayToDos();
+//     });
+// }
 }
 
 // event listener for input entry "enter"
