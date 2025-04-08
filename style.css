@@ -55,16 +55,34 @@ body {
   }
 
   .remove{
-    color: red
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: red;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
   #todo-item-add-btn {
-  padding: 10px 15px; /* Comfortable padding */
-  font-size: 1rem; /* Readable font size */
-  background-color: #4CAF50; /* Green background (common for "add") */
-  color: white; /* White text for contrast */
-  border: none; /* Remove default button border */
-  border-radius: 5px; /* Slightly rounded corners */
-  cursor: pointer; /* Indicate it's clickable */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+  #todo-list-input {
+    padding: 10px 15px;
+  }
+  
+  #todo-list-container {
+    text-align: center;
+  }
+
+  #todo-list-input {
+    width: 50%;
+    margin-right: 25px;
   }
