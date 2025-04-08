@@ -33,35 +33,9 @@ for (let item of todo) {
     let removeButton = document.createElement('button');
     
     li.textContent = item;
-    removeButton.textContent = 'Remove';
-
-
     existitingList.appendChild(li);
-
-    li.appendChild(span);
-    span.appendChild(removeButton)
-
-    li.addEventListener('click', function(event) {
-        const clickedListItem = event.target;
-
-        if (clickedListItem.style.textDecoration === 'line-through') {
-            clickedListItem.style.textDecoration = '';
-        } else {
-            clickedListItem.style.textDecoration = 'line-through';
-        }
-    });
-
-    removeButton.addEventListener('click', function(event) {
-        const clickedListItem = event.target;
-
-        if (clickedListItem.style.textDecoration === 'line-through') {
-            clickedListItem.style.textDecoration = '';
-        } else {
-            clickedListItem.style.textDecoration = 'line-through';
-        }
-    });
 }
-};
+}
 
 // event listener for input entry "enter"
 
@@ -71,7 +45,6 @@ const listItemArea = document.getElementById('todo-list-input');
 // event listener for enter in input area
 listItemArea.addEventListener('keydown', function(event) {
     if(event.key === 'Enter') {
-        console.log('input enter event occurred');
         addToTodo(event.target.value);
         event.target.value = '';
         console.log(todo)
@@ -83,7 +56,7 @@ const addButton = document.getElementById('todo-item-add-btn');
 
 addButton.addEventListener('click', function(event) {
     console.log('add button click event occurred');
-        addToTodo(listItemArea.value);
+        addToTodo(event.target.value);
 });
 
 displayToDos(todo);
