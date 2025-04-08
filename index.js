@@ -18,26 +18,32 @@ function addToTodo(task){
 // variable for add button/
 // event listener for add button
 function displayToDos() {
-    let existitingList = document.getElementById('todo-list');
+    let existingList = document.getElementById('todo-list');
     
-    if(!existitingList){
-        existitingList = document.createElement('ul');
-        existitingList.id = 'todo-list';
-        document.body.appendChild(existitingList);
+    if(!existingList){
+        existingList = document.createElement('ul');
+        existingList.id = 'todo-list';
+        document.body.appendChild(existingList);
     }
 
-existitingList.innerHTML = "";
+existingList.innerHTML = "";
+
 for (let item of todo) {
     let li = document.createElement('li');
     let span = document.createElement('span');
     let removeButton = document.createElement('button');
     
-    li.textContent = item;
+
+    li.classList.add('todo-item');
+    
+    span.textContent = item;
     removeButton.textContent = 'Remove';
 
-    existitingList.appendChild(li);
     li.appendChild(span);
-    span.appendChild(removeButton);
+    li.appendChild(removeButton);
+    existingList.appendChild(li);
+
+    // <li>List Item Text<span>Remove Button</span></li>
 
     li.addEventListener('click', function (event){
         const clickedListItem = event.target;
@@ -47,6 +53,10 @@ for (let item of todo) {
         } else {
             clickedListItem.style.textDecoration = 'line-through';
         }
+    });
+    removeButton.addEventListener('click', function(){
+        todo.splice(index, 1);
+        displayToDos();
     });
 }
 }
