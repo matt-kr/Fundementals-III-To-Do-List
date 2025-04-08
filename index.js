@@ -35,19 +35,20 @@ todo.forEach((item, index) => {
     let removeButton = document.createElement('button');
     
     li.classList.add('todo-item');
-    
+
     span.textContent = item;
     removeButton.textContent = 'Remove';
     
     span.addEventListener("click", function(event){
-    span.style.textDecoration =
-    span.style.textDecoration === 'line-through' ? '' : 'line-through';
+    
+        span.style.textDecoration =
+        span.style.textDecoration === 'line-through' ? '' : 'line-through';
     
     });
     
     removeButton.addEventListener('click', function(event){
     
-    todo.splice(index, 1);
+        todo.splice(index, 1);
     displayToDos();
     
     });
@@ -56,16 +57,6 @@ todo.forEach((item, index) => {
     li.appendChild(removeButton);
     existingList.appendChild(li);
     
-    li.addEventListener('click', function (event){
-    const clickedListItem = event.target;
-    
-    if (clickedListItem.style.textDecoration === 'line-through') {
-        clickedListItem.style.textDecoration = '';
-    } else {
-        clickedListItem.style.textDecoration = 'line-through';
-    }
-    
-    });
 });
 
 
