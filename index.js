@@ -1,11 +1,14 @@
 // Create a variable that will hold your to-do list items.
-let todo = []; 
+let savedTodos = localStorage.getItem('todos');
+let todo = savedTodos ? JSON.parse(savedTodos) : [];
+
 
 // Add a function that takes in a string as input
 // and adds it to the to-do list.
 
 function addToTodo(task){
     todo.push(task)
+    localStorage.setItem('todos', JSON.stringify(todo));
     displayToDos();
 }
 
@@ -50,7 +53,8 @@ todo.forEach((item, index) => {
     removeButton.addEventListener('click', function(event){
     
         todo.splice(index, 1);
-    displayToDos();
+        localStorage.setItem('todos', JSON.stringify(todo));
+        displayToDos();
     
     });
     
