@@ -35,6 +35,7 @@ todo.forEach((item, index) => {
     let removeButton = document.createElement('button');
     
     li.classList.add('todo-item');
+    removeButton.classList.add('remove');
 
     span.textContent = item;
     removeButton.textContent = 'Remove';

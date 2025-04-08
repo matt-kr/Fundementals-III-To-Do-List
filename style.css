@@ -53,3 +53,18 @@ body {
     align-items: center;
     padding: 10px;
   }
+
+  .remove{
+    color: red
+  }
+
+  #todo-item-add-btn {
+  padding: 10px 15px; /* Comfortable padding */
+  font-size: 1rem; /* Readable font size */
+  background-color: #4CAF50; /* Green background (common for "add") */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Indicate it's clickable */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
